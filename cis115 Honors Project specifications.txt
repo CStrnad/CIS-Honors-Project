@@ -1,0 +1,292 @@
+﻿Waubonsee Community College        Maya Tolappa
+CIS115 - Introduction to Programming
+Honors Project Specifications
+________________
+
+
+
+
+
+
+CIS115 - Introduction to Programming
+
+
+Honors Project Specifications
+
+
+Maya Tolappa
+
+
+Develop a file-based Inventory System
+
+
+
+
+
+
+________________
+
+
+Table of Contents
+Introduction
+Chapter 2 – Input, Processing, and Output
+1. Create the Main Menu Screen - mainmenu.py
+2. Create the Display Customer Screen - displayCustomers.py
+3. Create the Add New Customer Screen - addCustomer.py
+4. Create the Delete Customer Screen - deleteCustomer.py
+Chapter 3 - Decision Structures
+Chapter 4 - Repetition Structures
+Chapter 5 - Functions
+Chapter 6 - Files and Exceptions
+Make these changes to mainmenu.py
+Changes to displayCustomers function
+Changes to addCustomer function
+Changes to deleteCustomer function
+Submission Details
+
+
+
+
+
+
+________________
+
+
+Introduction
+In order to complete this Honors project, you will write an order entry system for A1 Party suppliers. A1 currently has 3 customers. The purpose of the honors project is as follows:
+
+
+* Display existing customers
+* Add new customers
+* Delete a customer (this will be implemented as a stub function)
+* Maintain customer information in a file
+
+
+While this may seem a daunting task, we will work on small pieces at the end of each chapter, making it more manageable and “do-able”.
+
+
+For each chapter, you will be provided with suggested screen layouts and processing details.
+
+
+
+
+Chapter 2 – Input, Processing, and Output
+For this chapter’s assignment, write programs that display the main screens used in the project. The screens have already been designed, so your primary task is to write the Python code that displays them. 
+
+
+For testing purposes you will create a separate program for each screen. (In later chapters you will merge these into one program.) Here is a list of the programs you should have after completing the assignment for this chapter:
+
+
+1. mainmenu.py
+2. displayCustomers.py
+3. addCustomer.py
+4. deleteCustomer.py
+
+
+1. Create the Main Menu Screen - mainmenu.py
+Create a program called mainmenu.py to display the following screen. User input is highlighted in yellow:
+
+
+              A1 Party Suppliers Order Entry System
+
+
+                1.        Display all Customers
+                2.        Add a new customer
+                3.        Delete Customer
+                4.        EXIT
+
+
+Enter selection. Must be a number 1-4 : 4
+	
+
+2. Create the Display Customer Screen - displayCustomers.py
+Create a program called displayCustomers.py to display the following screen. 
+
+
+              A1 Party Suppliers Order Entry System
+                   List of Customers
+---------------------------------------------------------------------
+Name                 Address                        City, State, Zip    
+---------------------------------------------------------------------
+
+
+
+
+# of records
+	3. Create the Add New Customer Screen - addCustomer.py
+Create a program called addCustomers.py It should request the user to enter values for each of the fields for a customer using a series of input statements. Here is my implementation with user input shown in bold, maroon lettering.
+
+
+         A1 Party Suppliers Order Entry System
+
+
+Enter Customer Name: Joe's Store
+Enter Address: 1234 Hansel Avenue
+Enter City, State, zip: Aurora, IL 60554
+Click 'Y' to add customer: Y
+
+
+	
+
+4. Create the Delete Customer Screen - deleteCustomer.py
+Create a program called addCustomers.py It should request the user to enter values for each of the fields for a customer using a series of input statements. Here is my implementation with user input shown in bold, maroon lettering.
+
+
+-- not implemented yet --
+	
+
+
+
+Chapter 3 - Decision Structures
+It is now time to make one program from the separate files you have created. Make these changes to mainmenu.py. Copy relevant code from other programs.
+
+
+* When 1 is entered, execute code copied from displayCustomers.py.
+* When 2 is entered,  execute code copied from addCustomer.py.
+* When 3 is entered,  execute code copied from deleteCustomer.py.
+* When any other value is entered, exit the program with a message.
+
+
+
+
+Chapter 4 - Repetition Structures
+Make these changes in mainmenu.py.
+* Create a loop that makes sure that user input is in the range 1-4, displaying error messages when an incorrect number is entered
+
+
+
+
+Chapter 5 - Functions
+Change maimenu.py to contain a main() function. 
+* In mainmenu.py, the main() function should display the main screen shown below: 
+
+
+              A1 Party Suppliers Order Entry System
+
+
+
+
+                1.        Display all Customers
+                2.        Add a new customer
+                3.        Delete an existing customer
+                4.        EXIT
+
+
+Enter selection. Must be a number 1-4 : 
+	
+
+* When the user is asked to enter a number, indicating their choice, execute functions.
+* User input must be obtained from a function called display_menu_get_choice that:
+   * displays the main menu
+   * gets user input in the range 1-4
+
+
+The functions that are executed when various options are entered is as follows:
+
+
+Code in mainmenu.py
+	Name of function in mainmenu.py
+	Code executed when user enters 1
+	displayCustomers()
+	Code executed when user enters 2
+	addCustomer()
+	Code executed when user enters 5
+	deleteCustomer()
+	
+
+The hierarchy chart is as follows:
+
+
+  
+
+
+
+The flowchart for the main function is as follows:
+  
+
+
+
+
+
+Chapter 6 - Files and Exceptions
+Download the customers.txt file from BlackBoard and place it in the same folder as the .py file for the Honors project. The contents of this file are shown below.
+
+
+11
+Mary's Inn
+132 North Avenue
+Winston
+IL
+60556
+(630)466-7788
+21
+Smith Bakery
+12, 51st Avenue, #4
+Shannon
+IL
+77645
+(785)985-3947
+23
+Karen Krafts
+86 Mells Place
+Canton
+IL
+11745
+(775)785-9904
+	
+
+Make these changes to mainmenu.py
+Pass the string constant “customers.txt” as an argument to the following functions:
+* displayCustomers 
+* addCustomer
+* deleteCustomer
+
+
+Changes to displayCustomers function
+Modify the displayCustomers function as follows:
+* Change the function header to accept a parameter
+* Open a file with the name of the parameter passed into the function as an input file.
+* Read data from the file and display it
+* Close the file at the end of the function
+
+
+Changes to addCustomer function
+Make the following changes to addCustomer function
+* Change the function header to accept a parameter
+* Open a file with the name of the parameter passed into the function in append mode.
+* Obtain information from the user to create a new customer
+* Use Exception handling to ensure that customerID is an int value
+* Write out user entered fields into the file
+* Close the file.
+
+
+Changes to deleteCustomer function
+Make the following changes to deleteCustomer function. 
+* Obtain customer id of the customer that needs to be modified
+* Use Exception handling to ensure that customerID is an int value
+* Display a message "-- delete not implemented --"
+
+
+________________
+
+
+Submission Details
+Submit the following:
+* Complete .py file for the honors project with comments as follows:
+   * At the beginning of the file – about 5-10 lines
+   * A 5-10 line comment block at the beginning of each function
+* The data file
+* A two-page document that documents the following:
+   * What did you learn from completing the project?
+   * What was really challenging about it?
+   * If you had to do it again, what would you have done differently?
+
+
+
+
+
+
+
+
+________________
+ of
