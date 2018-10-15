@@ -104,9 +104,9 @@ Create a program called displayCustomers.py to display the following screen.
 
 
               A1 Party Suppliers Order Entry System
-                   List of Customers
+                      List of Customers
 ---------------------------------------------------------------------
-Name                 Address                        City, State, Zip    
+Name                 Address                        City, State, Zip
 ---------------------------------------------------------------------
 
 
