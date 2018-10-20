@@ -3,16 +3,32 @@
 # Purpose: Create a program menu for the user
 
 
-def display_customers():
+def display_customers(customerFileName):
+    lst_customers = []
     print("           A1 Party Suppliers Order Entry System")
     print("                   List of Customers")
     print("---------------------------------------------------------------------")
     print("Name                 Address                        City, State, Zip")
     print("---------------------------------------------------------------------")
+    user_file = open(customerFileName)  # Opens user_answers.txt
+
+    one_line = user_file.readline()  # Reads initial line of text file.
+
+    while (one_line != ""):  # Loop to read file line by line and strip \n to append to array.
+        one_line_nl = one_line.strip("\n")
+        lst_customers.append(one_line_nl)
+        one_line = user_file.readline()
+    print(lst_customers)
+
+    print("1", "\t", lst_customers[0], "\t", lst_customers[1], "\t", lst_customers[2])
+
+    for i in range(3, 10, 3):   #TODO finish setting range
+        print(lst_customers[i], "\t", lst_customers[i+1], "\t\t", lst_customers[i+2])
+        i += 3
     return;
 
 
-def add_customer():
+def add_customer(customerFileName):
     print("         A1 Party Suppliers Order Entry System")
 
     str_cust_name = str(input("Enter Customer Name: "))  # Request the Customers name.
@@ -34,50 +50,67 @@ def add_customer():
     return;
 
 
-def delete_customers():
+def delete_customers(customerFileName):
     print('Not implemented yet.')
     return;
 
 
-#Create command line memo.
-print('A1 Party Suppliers Order Entry System')
-print('\n')  # Print empty line
-print('1.     Display all customers')
-print('2.     Add a new customer')
-print('3.     Delete Customer')
-print('4.     EXIT')
-print('\n')  # Print empty line
+def main_menu_get():
+    #Create command line memo.
+    print('A1 Party Suppliers Order Entry System')
+    print('\n')  # Print empty line
+    print('1.     Display all customers')
+    print('2.     Add a new customer')
+    print('3.     Delete Customer')
+    print('4.     EXIT')
+    print('\n')  # Print empty line
 
-int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))   #Request input from user.
+    int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))   #Request input from user.
 
-while not int_menu_usr_input < 5 or not int_menu_usr_input > 0:   #Validate that inputs are within menu range.
-    print('Error!', int_menu_usr_input, 'is not a valid input.')
-    int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))
+    while not int_menu_usr_input < 5 or not int_menu_usr_input > 0:   #Validate that inputs are within menu range.
+        print('Error!', int_menu_usr_input, 'is not a valid input.')
+        int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))
 
-print("You've entered", int_menu_usr_input)
+    print("You've entered", int_menu_usr_input)
 
-if (int_menu_usr_input == 1):
-    display_customers()
+    if (int_menu_usr_input == 1):   #If user inputs 1, goto display_customers
+        display_customers()
 
-if (int_menu_usr_input == 2):
-    add_customer()
+    if (int_menu_usr_input == 2):   #If user inputs 2, goto add_Customer
+        add_customer()
 
-if (int_menu_usr_input == 3):
-    delete_customers()
+    if (int_menu_usr_input == 3):   #If user inputs 3, goto delete_customers
+        delete_customers()
 
-''' 
-1. Create the Main Menu Screen - mainmenu.py
-Create a program called mainmenu.py to display the following screen. User input is highlighted in yellow:
+def main():
+    customerFileName = str("customers.txt")
+    #Create command line memo.
+    print('A1 Party Suppliers Order Entry System')
+    print('\n')  # Print empty line
+    print('1.     Display all customers')
+    print('2.     Add a new customer')
+    print('3.     Delete Customer')
+    print('4.     EXIT')
+    print('\n')  # Print empty line
+
+    int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))   #Request input from user.
+
+    while not int_menu_usr_input < 5 or not int_menu_usr_input > 0:   #Validate that inputs are within menu range.
+        print('Error!', int_menu_usr_input, 'is not a valid input.')
+        int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))
+
+    print("You've entered", int_menu_usr_input)
+
+    if (int_menu_usr_input == 1):   #If user inputs 1, goto display_customers
+        display_customers(customerFileName)
+
+    if (int_menu_usr_input == 2):   #If user inputs 2, goto add_Customer
+        add_customer(customerFileName)
+
+    if (int_menu_usr_input == 3):   #If user inputs 3, goto delete_customers
+        delete_customers(customerFileName)
+
+    return customerFileName;
 
 
-              A1 Party Suppliers Order Entry System
-
-
-                1.        Display all Customers
-                2.        Add a new customer
-                3.        Delete Customer
-                4.        EXIT
-
-
-Enter selection. Must be a number 1-4 : 4
-'''  # Prompt
+main()
