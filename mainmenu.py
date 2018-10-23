@@ -18,13 +18,14 @@ def display_customers(customerFileName):
         one_line_nl = one_line.strip("\n")
         lst_customers.append(one_line_nl)
         one_line = user_file.readline()
-    print(lst_customers)
 
-    print("1", "\t", lst_customers[0], "\t", lst_customers[1], "\t", lst_customers[2])
+    print(lst_customers[0], "\t\t", lst_customers[1], "\t\t", lst_customers[2])
 
     for i in range(3, 10, 3):   #TODO finish setting range
         print(lst_customers[i], "\t", lst_customers[i+1], "\t\t", lst_customers[i+2])
         i += 3
+
+    user_file.close()
     return;
 
 
