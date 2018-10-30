@@ -1,6 +1,10 @@
 # File_Name: mainmenu.py
 # Author: Christopher Strnad
-# Purpose: Create a program menu for the user
+# Purpose: Create a Customer User interface
+#          designed to allow the User to view,
+#          add, and delete customers from a
+#          text file stored in the same
+#          directory as the program.
 
 
 def display_customers(customerFileName):
@@ -13,7 +17,8 @@ def display_customers(customerFileName):
     user_file = open(customerFileName)  # Opens user_answers.txt
 
     one_line = user_file.readline()  # Reads initial line of text file.
-
+    num_lines = sum(1 for line in open('customers.txt'))
+    print("TEST:", num_lines, "LINES!")
     while (one_line != ""):  # Loop to read file line by line and strip \n to append to array.
         one_line_nl = one_line.strip("\n")
         lst_customers.append(one_line_nl)
@@ -21,15 +26,17 @@ def display_customers(customerFileName):
 
     print(lst_customers[0], "\t\t", lst_customers[1], "\t\t", lst_customers[2])
 
-    for i in range(3, 10, 3):   #TODO finish setting range
+    for i in range(3, num_lines, 3):   #TODO finish setting range
         print(lst_customers[i], "\t", lst_customers[i+1], "\t\t", lst_customers[i+2])
         i += 3
 
     user_file.close()
-    return;
+    return   #customerID
 
 
 def add_customer(customerFileName):
+    user_file = open(customerFileName, "a")  # Opens user_answers.txt in append mode
+
     print("         A1 Party Suppliers Order Entry System")
 
     str_cust_name = str(input("Enter Customer Name: "))  # Request the Customers name.
@@ -47,13 +54,26 @@ def add_customer(customerFileName):
         input('Enter "Y" to add customer: '))  # Request the user to confirm the data entered is correct.
 
     if str(affirmation_check) == 'y' or 'Y' or 'yes' or 'Yes':
-        print('Added to registry.')
-    return;
+        try:
+            user_file.write(str_cust_name + '\n')
+            user_file.write(str_address + '\n')
+            user_file.write(str_address_two + '\n')
+            print('Added to registry.')
+        except Exception as e:
+            print(e)
+    user_file.close()
+    return
 
 
 def delete_customers(customerFileName):
-    print('Not implemented yet.')
-    return;
+    del_cust_name = input("Enter Customer Name to be deleted:  ")
+    while not del_cust_name.rstrip():
+        print("Value cannot be blank. Try again.")
+        del_cust_name = input("Enter Customer Name to be deleted:  ")
+
+    print("\n", del_cust_name, "will be deleted\n")
+    print('-- delete not implemented --')
+    return
 
 
 def main_menu_get():

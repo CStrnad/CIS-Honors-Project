@@ -244,13 +244,13 @@ Pass the string constant “customers.txt” as an argument to the following fun
 
 Changes to displayCustomers function
 Modify the displayCustomers function as follows:
-* Change the function header to accept a parameter
-* Open a file with the name of the parameter passed into the function as an input file.
-* Read data from the file and display it
-* Close the file at the end of the function
+* Change the function header to accept a parameter. DONE!
+* Open a file with the name of the parameter passed into the function as an input file. DONE!
+* Read data from the file and display it. DONE!
+* Close the file at the end of the function. DONE!
 
 
-Changes to addCustomer function
+Changes to addCustomer function   #TODO Add Customer File Changes
 Make the following changes to addCustomer function
 * Change the function header to accept a parameter
 * Open a file with the name of the parameter passed into the function in append mode.
@@ -260,7 +260,7 @@ Make the following changes to addCustomer function
 * Close the file.
 
 
-Changes to deleteCustomer function
+Changes to deleteCustomer function   #TODO Delete Customers Function Changes
 Make the following changes to deleteCustomer function. 
 * Obtain customer id of the customer that needs to be modified
 * Use Exception handling to ensure that customerID is an int value
