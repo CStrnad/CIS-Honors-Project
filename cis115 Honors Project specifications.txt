@@ -250,7 +250,7 @@ Modify the displayCustomers function as follows:
 * Close the file at the end of the function. DONE!
 
 
-Changes to addCustomer function   #TODO Add Customer File Changes
+Changes to addCustomer function
 Make the following changes to addCustomer function
 * Change the function header to accept a parameter
 * Open a file with the name of the parameter passed into the function in append mode.
@@ -260,7 +260,7 @@ Make the following changes to addCustomer function
 * Close the file.
 
 
-Changes to deleteCustomer function   #TODO Delete Customers Function Changes
+Changes to deleteCustomer function
 Make the following changes to deleteCustomer function. 
 * Obtain customer id of the customer that needs to be modified
 * Use Exception handling to ensure that customerID is an int value

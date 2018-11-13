@@ -7,8 +7,18 @@
 #          directory as the program.
 
 
+# -------------------- Reflection --------------------
+#       In this project I have learned a great value of information.
+#   Firstly, I displayed my ability to use functions systematically
+#   in order to create a menu that has multiple options. I then learned
+#   how to take data from a text file and strip it by line in order to
+#   append it to a list. I also tested my ability to correctly use while,
+#   if, and elif arguments. The completion of this project took
+#   approximately 8 hour in total from start to finish.
+
+
 def display_customers(customerFileName):
-    lst_customers = []
+    lst_customers = []   #Create empty list.
     print("           A1 Party Suppliers Order Entry System")
     print("                   List of Customers")
     print("---------------------------------------------------------------------")
@@ -18,20 +28,19 @@ def display_customers(customerFileName):
 
     one_line = user_file.readline()  # Reads initial line of text file.
     num_lines = sum(1 for line in open('customers.txt'))
-    print("TEST:", num_lines, "LINES!")
     while (one_line != ""):  # Loop to read file line by line and strip \n to append to array.
-        one_line_nl = one_line.strip("\n")
-        lst_customers.append(one_line_nl)
-        one_line = user_file.readline()
+        one_line_nl = one_line.strip("\n")   #Strip off the new lines.
+        lst_customers.append(one_line_nl)   #Append to list.
+        one_line = user_file.readline()   #Read next line
 
     print(lst_customers[0], "\t\t", lst_customers[1], "\t\t", lst_customers[2])
 
-    for i in range(3, num_lines, 3):   #TODO finish setting range
+    for i in range(3, num_lines, 3):
         print(lst_customers[i], "\t", lst_customers[i+1], "\t\t", lst_customers[i+2])
         i += 3
 
     user_file.close()
-    return   #customerID
+    #print("end of display_customers")
 
 
 def add_customer(customerFileName):
@@ -73,13 +82,11 @@ def delete_customers(customerFileName):
 
     print("\n", del_cust_name, "will be deleted\n")
     print('-- delete not implemented --')
-    return
 
 
 def main_menu_get():
-    customerFileName = str("customers.txt")
     #Create command line memo.
-    print('A1 Party Suppliers Order Entry System')
+    print('\nA1 Party Suppliers Order Entry System')
     print('\n')  # Print empty line
     print('1.     Display all customers')
     print('2.     Add a new customer')
@@ -87,26 +94,31 @@ def main_menu_get():
     print('4.     EXIT')
     print('\n')  # Print empty line
 
-    int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))   #Request input from user.
+    int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))  # Request input from user.
 
     while not int_menu_usr_input < 5 or not int_menu_usr_input > 0:   #Validate that inputs are within menu range.
         print('Error!', int_menu_usr_input, 'is not a valid input.')
         int_menu_usr_input = int(input('Enter selection. Must be a number 1-4 : '))
-
-    print("You've entered", int_menu_usr_input)
-
-    if (int_menu_usr_input == 1):   #If user inputs 1, goto display_customers
-        display_customers(customerFileName)
-
-    if (int_menu_usr_input == 2):   #If user inputs 2, goto add_Customer
-        add_customer(customerFileName)
-
-    if (int_menu_usr_input == 3):   #If user inputs 3, goto delete_customers
-        delete_customers(customerFileName)
+    return int_menu_usr_input
 
 
 def main():
-    main_menu_get()
+    customerFileName = str("customers.txt")
+    int_menu_usr_input = main_menu_get()
+    while int_menu_usr_input in range(1, 4):
+        print("You've entered", int_menu_usr_input)
+
+        if (int_menu_usr_input == 1):   #If user inputs 1, goto display_customers
+            display_customers(customerFileName)
+
+        elif (int_menu_usr_input == 2):   #If user inputs 2, goto add_Customer
+            add_customer(customerFileName)
+
+        elif (int_menu_usr_input == 3):   #If user inputs 3, goto delete_customers
+            delete_customers(customerFileName)
+
+        #print("line114")
+        int_menu_usr_input = main_menu_get()   #Get user input for menu selection.
 
 
 main()

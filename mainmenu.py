@@ -26,7 +26,7 @@ def display_customers(customerFileName):
 
     print(lst_customers[0], "\t\t", lst_customers[1], "\t\t", lst_customers[2])
 
-    for i in range(3, num_lines, 3):   #TODO finish setting range
+    for i in range(3, num_lines, 3):
         print(lst_customers[i], "\t", lst_customers[i+1], "\t\t", lst_customers[i+2])
         i += 3
 
